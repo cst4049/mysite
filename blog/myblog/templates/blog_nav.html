@@ -1,0 +1,40 @@
+<nav class="navbar navbar-default navbar-static-top" role="navigation">
+  <div class="container">
+    <div class="navbar-header">
+      <button class="navbar-toggle collapsed" type="button" data-toggle="collapse" data-target=".bs-navbar-collapse">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a href="{% url 'blog_home'%}" class="navbar-brand">首页</a>
+    </div>
+    <div id="navbar" class="collapse navbar-collapse bs-navbar-collapse">
+      <ul class="nav navbar-nav">
+        <li><a href="#">奇趣</a></li>
+        <li><a href="{% url 'blog_index'%}">文章</a></li>
+        <li><a href="{% url 'guestbookform'%}">去吐槽</a></li>
+        <li><a href="{% url 'blog_guestbook'%}">留言信息</a></li> 
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+      {% if user.is_authenticated %}
+        <li>
+        <a href="{% url 'blog_userinfo' %}" title="个人信息"><span class="glyphicon glyphicon-user" aria-hidden="true"></span> {{ user.username }}</a>
+        </li>
+        <li>
+        <a href="{% url 'logout' %}?next=/index/" title="退出"><span class="glyphicon glyphicon-log-out" aria-hidden="true"></span></a>
+        </li>
+        {% else %}
+      <li>
+      <div class='sign-in-up'>
+        <a href="{% url 'register' %}" class='btn btn-info'>注册</a>
+      </div></li>
+      <li>
+      <div class='sign-in-up'>
+        <a href="{% url 'login' %}" class='btn btn-info'>登录</a>
+      </div></li>
+      {% endif %}
+      </ul>
+    </div>
+  </div>
+</nav>

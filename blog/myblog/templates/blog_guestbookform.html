@@ -1,0 +1,19 @@
+{% extends 'blog_base.html'%}
+{% block content %}
+ <div class='container'>
+<p align="center">
+ <h1>评论区</h1></p>
+ <h2>你可以在这里：</h2><br>
+    <h3><ul>
+    <li>写下你今天的心情</li>
+    <li>写下学习生活中遇到的问题</li>
+     <li>也可以解决别人提出的问题</li>
+      <li>和志同道合的朋友们聊聊天</li>
+       <li>或者就是随便水水</li>
+        <li>............</li>
+        </ul></h3>
+    <form method='post'>{% csrf_token %}
+    {{form.guestbook}}
+    <button type="submit" class="btn btn-primary">留言</button>
+  </div>    
+ {% endblock %}

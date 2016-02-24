@@ -1,0 +1,20 @@
+{% extends 'blog_base.html'%}
+{% block content %}
+<div class='container'>
+        <p align='center'><h3>留言板</h3></p>
+      <h4>你可以在这查看留言信息</h4>
+<div>
+   {% for o in object_list %}
+   <div class ="article-item">
+   <strong>{{o.user}}
+   <font size='2'>发表于</font></strong>
+   <font size='2' >{{o.created}}</font>
+     <div class ="article-info">
+     {{o.content}}
+     </div>
+   </div>  
+      {% endfor %}
+  </div>
+</div>
+
+{% endblock %}
